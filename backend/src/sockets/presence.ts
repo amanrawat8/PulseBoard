@@ -21,3 +21,7 @@ export function trackDisconnect(userId: string): number {
 
     return onlineUser.size;
 }
+
+export function getOnlineCount(): number {
+  return onlineUser.size;
+}
