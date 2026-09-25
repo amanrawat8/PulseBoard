@@ -3,9 +3,9 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: velozity
-      POSTGRES_PASSWORD: velozity
-      POSTGRES_DB: velozity_dashboard
+      POSTGRES_USER: pulseboard
+      POSTGRES_PASSWORD: pulseboard
+      POSTGRES_DB: pulseboard_dashboard
     ports:
       - "5433:5432"
     volumes:

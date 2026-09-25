@@ -7,27 +7,27 @@ async function main() {
   const passwordHash = await hashPassword("password123");
 
   const admin = await prisma.user.create({
-    data: { name: "Admin User", email: "admin@velozity.com", passwordHash, role: "ADMIN" },
+    data: { name: "Admin User", email: "admin@pulseboard.dev", passwordHash, role: "ADMIN" },
   });
 
   const pm1 = await prisma.user.create({
-    data: { name: "Priya Sharma", email: "pm1@velozity.com", passwordHash, role: "PM" },
+    data: { name: "Priya Sharma", email: "pm1@pulseboard.dev", passwordHash, role: "PM" },
   });
   const pm2 = await prisma.user.create({
-    data: { name: "Rahul Verma", email: "pm2@velozity.com", passwordHash, role: "PM" },
+    data: { name: "Rahul Verma", email: "pm2@pulseboard.dev", passwordHash, role: "PM" },
   });
 
   const dev1 = await prisma.user.create({
-    data: { name: "Ravi Kumar", email: "dev1@velozity.com", passwordHash, role: "DEVELOPER" },
+    data: { name: "Ravi Kumar", email: "dev1@pulseboard.dev", passwordHash, role: "DEVELOPER" },
   });
   const dev2 = await prisma.user.create({
-    data: { name: "Anita Singh", email: "dev2@velozity.com", passwordHash, role: "DEVELOPER" },
+    data: { name: "Anita Singh", email: "dev2@pulseboard.dev", passwordHash, role: "DEVELOPER" },
   });
   const dev3 = await prisma.user.create({
-    data: { name: "Karan Mehta", email: "dev3@velozity.com", passwordHash, role: "DEVELOPER" },
+    data: { name: "Karan Mehta", email: "dev3@pulseboard.dev", passwordHash, role: "DEVELOPER" },
   });
   const dev4 = await prisma.user.create({
-    data: { name: "Sneha Patel", email: "dev4@velozity.com", passwordHash, role: "DEVELOPER" },
+    data: { name: "Sneha Patel", email: "dev4@pulseboard.dev", passwordHash, role: "DEVELOPER" },
   });
 
   const clientAcme = await prisma.client.create({ data: { name: "Acme Corp", email: "contact@acme.com" } });

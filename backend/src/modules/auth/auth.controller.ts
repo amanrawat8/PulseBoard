@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import type { LoginInput } from "./auth.schema.js";
 import * as authService from "./auth.service.js";
 import { AppError } from "../../utils/AppError.js";
+import { getAuthUser } from "../../utils/getAuthUser.js";
 
 const REFRESH_COOKIE_NAME = "refreshToken";
 const REFRESH_COOKIE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
@@ -40,6 +41,13 @@ export async function refresh(req: Request, res: Response): Promise<void> {
     res.json({
         accessToken: result.accessToken
     })
+}
+
+
+export async function me(req: Request, res: Response): Promise<void> {
+    const user = getAuthUser(req);
+    const fullUser = await authService.getUserById(user.id);
+    res.json({ user: fullUser });
 }
 
 

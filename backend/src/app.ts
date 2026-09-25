@@ -9,6 +9,7 @@ import { tasksRouter } from "./modules/tasks/tasks.routes.js";
 import { activityRouter } from "./modules/activity/activity.routes.js";
 import { notificationsRouter } from "./modules/notifications/notifications.route.js";
 import { dashboardRouter } from "./modules/dashboard/dashboard.routes.js";
+import { usersRouter } from "./modules/users/users.routes.js";
 
 
 const app = express();
@@ -37,6 +38,7 @@ app.use("/tasks", tasksRouter);
 app.use("/activity", activityRouter);
 app.use("/notifications", notificationsRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/users", usersRouter);
 
 
 app.use((req, res) => {

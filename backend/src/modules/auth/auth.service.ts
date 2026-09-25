@@ -92,6 +92,15 @@ export async function refresh(oldRefreshToken: string) {
 
 
 
+export async function getUserById(userId: string) {
+    const user = await prisma.user.findUnique({ where: { id: userId } });
+    if (!user) {
+        throw new AppError(404, "User not found");
+    }
+    return { id: user.id, name: user.name, email: user.email, role: user.role };
+}
+
+
 export async function logout(refreshToken: string) {
     const tokenHash = hashToken(refreshToken);
 

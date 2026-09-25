@@ -22,7 +22,7 @@ export function createProject(data: CreateProjectInput, user: AuthUser) {
 export function listProjects(user: AuthUser) {
   if (user.role === "ADMIN") {
     return prisma.project.findMany({
-      include: { client: true },
+      include: { client: true, _count: { select: { tasks: true } } },
       orderBy: { createdAt: "desc" },
     });
   }
@@ -30,14 +30,14 @@ export function listProjects(user: AuthUser) {
   if (user.role === "PM") {
     return prisma.project.findMany({
       where: { createdById: user.id },
-      include: { client: true },
+      include: { client: true, _count: { select: { tasks: true } } },
       orderBy: { createdAt: "desc" },
     });
   }
 
   return prisma.project.findMany({
     where: { tasks: { some: { assignedToId: user.id } } },
-    include: { client: true },
+    include: { client: true, _count: { select: { tasks: true } } },
     orderBy: { createdAt: "desc" },
   });
 }

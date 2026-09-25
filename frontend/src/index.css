@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --animate-in: enter 0.15s ease-out;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.985 0.002 260);
+  --foreground: oklch(0.19 0.02 265);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.02 265);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.02 265);
+
+  --primary: oklch(0.5 0.19 273);
+  --primary-foreground: oklch(0.98 0.005 270);
+
+  --secondary: oklch(0.955 0.01 270);
+  --secondary-foreground: oklch(0.28 0.04 265);
+
+  --muted: oklch(0.955 0.008 265);
+  --muted-foreground: oklch(0.5 0.02 265);
+
+  --accent: oklch(0.94 0.03 275);
+  --accent-foreground: oklch(0.32 0.08 273);
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 270);
+
+  --success: oklch(0.62 0.15 155);
+  --success-foreground: oklch(0.98 0.02 155);
+
+  --warning: oklch(0.75 0.16 75);
+  --warning-foreground: oklch(0.25 0.05 75);
+
+  --border: oklch(0.9 0.008 265);
+  --input: oklch(0.9 0.008 265);
+  --ring: oklch(0.5 0.19 273);
+
+  --sidebar: oklch(0.19 0.03 265);
+  --sidebar-foreground: oklch(0.9 0.01 265);
+  --sidebar-border: oklch(0.28 0.03 265);
+}
+
+.dark {
+  --background: oklch(0.16 0.015 265);
+  --foreground: oklch(0.94 0.005 265);
+
+  --card: oklch(0.2 0.018 265);
+  --card-foreground: oklch(0.94 0.005 265);
+
+  --popover: oklch(0.2 0.018 265);
+  --popover-foreground: oklch(0.94 0.005 265);
+
+  --primary: oklch(0.68 0.18 273);
+  --primary-foreground: oklch(0.16 0.03 273);
+
+  --secondary: oklch(0.26 0.02 265);
+  --secondary-foreground: oklch(0.9 0.01 265);
+
+  --muted: oklch(0.24 0.015 265);
+  --muted-foreground: oklch(0.65 0.015 265);
+
+  --accent: oklch(0.3 0.05 273);
+  --accent-foreground: oklch(0.88 0.03 275);
+
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.98 0.005 270);
+
+  --success: oklch(0.68 0.15 155);
+  --success-foreground: oklch(0.16 0.03 155);
+
+  --warning: oklch(0.78 0.15 75);
+  --warning-foreground: oklch(0.2 0.04 75);
+
+  --border: oklch(0.3 0.015 265);
+  --input: oklch(0.3 0.015 265);
+  --ring: oklch(0.68 0.18 273);
+
+  --sidebar: oklch(0.13 0.015 265);
+  --sidebar-foreground: oklch(0.85 0.01 265);
+  --sidebar-border: oklch(0.24 0.02 265);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+  }
+}
